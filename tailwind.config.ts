@@ -24,6 +24,7 @@ module.exports = {
           "background": '#343B3C',
           "accent1": '#6ADAEC',
           "accent2": "#95B0B5",
+          "accent3": "#ff4848",
           "links": '#FFD7B9',
           "linkshover": '#FF8667',
           "buttonhover": "#D4FADD",

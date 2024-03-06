@@ -2,18 +2,53 @@
 import Image from "next/image";
 import Wrapper from "@/components/Wrapper";
 import HoverCard from "@/components/Current";
-import { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
+const Clock = () => {
+  const [time, setTime] = useState(
+    new Date()
+      .toLocaleTimeString('en-IN', {
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+      .replace(/(:\d{2}|)$/, "")
+  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(
+        new Date()
+          .toLocaleTimeString('en-IN', {
+            hour: "2-digit",
+            minute: "2-digit",
+          })
+          .replace(/(:\d{2}|)$/, "")
+      );
+    }, 1000);
+    return () => clearInterval(interval);
+  });
+  return (
+    <div className="clock social-icons body-medium font-quicksand text-socials">
+      {time}
+    </div>
+  );
+};
+
 export default function Home() {
   const container = useRef(null);
   const tlref = useRef<gsap.core.Timeline>();
+  const [renderTextNodes, setRenderTextNodes] = useState(true);
+
   const { contextSafe } = useGSAP(
     () => {
       tlref.current = gsap
-        .timeline()
+        .timeline({
+          onComplete: () => {
+            setRenderTextNodes(false);
+          },
+        })
         .from(".social-icons", {
           xPercent: -200,
           opacity: 1,
@@ -47,13 +82,13 @@ export default function Home() {
     { scope: container }
   );
 
-  const socialHoverAnimationEnter = contextSafe((event) => {
+  const socialHoverAnimationEnter = contextSafe((event:React.MouseEvent<HTMLDivElement>) => {
     gsap.to(event.target, {
       x: 10,
     });
   });
 
-  const socialHoverAnimationExit = contextSafe((event) => {
+  const socialHoverAnimationExit = contextSafe((event:React.MouseEvent<HTMLDivElement>) => {
     gsap.to(event.target, {
       x: 0,
     });
@@ -95,11 +130,11 @@ export default function Home() {
               Hello,{" "}
             </span>
             <div>
-              <span className="font-quicksand font-regular body-Xlarge text-accent1">
+              <span className="font-quicksand font-regular body-Xlarge text-white">
                 {" "}
                 I am{" "}
               </span>
-              <span className="font-quicksand font-regular body-XXlarge text-accent1">
+              <span className="font-quicksand font-regular body-XXlarge text-accent3">
                 {" "}
                 Aditya Ahuja,{" "}
               </span>
@@ -124,7 +159,7 @@ export default function Home() {
             <HoverCard />
           </section>
         </div>
-        <section className="image-container mx-12">
+        <div className="image-container mt-5">
           {" "}
           <Image
             src="/home_image.png"
@@ -133,8 +168,9 @@ export default function Home() {
             alt="Picture of the author"
             priority
           />
-        </section>
+        </div>
         <div className="socials fixed left-0 bottom-0 mb-4 ml-4 flex md:flex-col space-y-2">
+          {Clock()}
           {socialsList.map((social, index) => {
             return (
               <Link key={index} href={social.link}>
@@ -147,18 +183,22 @@ export default function Home() {
                     className="social-icons"
                     onMouseEnter={socialHoverAnimationEnter}
                     onMouseLeave={socialHoverAnimationExit}
-                    onClick = {socialHoverAnimationExit}
+                    onClick={socialHoverAnimationExit}
                   />
                 </div>
               </Link>
             );
           })}
-          <div className="fixed font-quicksand whisper-text-1 body-big text-white bottom-[20px] left-[70px]">
-            Hi There 😀
-          </div>
-          <div className="fixed font-quicksand whisper-text-2 body-big text-white bottom-[20px] left-[70px]">
-            Feel free to reach out any time! 🤙
-          </div>
+          {renderTextNodes && (
+            <div className="fixed font-quicksand whisper-text-1 body-big text-white bottom-[20px] left-[70px]">
+              Hi There 😀
+            </div>
+          )}
+          {renderTextNodes && (
+            <div className="fixed font-quicksand whisper-text-2 body-big text-white bottom-[20px] left-[70px]">
+              Feel free to reach out! 🤙
+            </div>
+          )}
         </div>
       </div>
     </Wrapper>
