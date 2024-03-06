@@ -10,7 +10,7 @@ const page_variant = {
     opacity: 1,
     transition: {
       type: "tween",
-      duration: 2,
+      duration: 0.5,
     },
   },
 };

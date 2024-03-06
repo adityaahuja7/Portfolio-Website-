@@ -15,6 +15,7 @@ module.exports = {
       'quicksand': ['Quicksand', 'sans-serif'],
       'lato': ['Lato', 'sans-serif'],
       'openSans': ['Open Sans', 'sans-serif'],
+      'karla': ["Karla", 'sans-serif']
 
     },
 
@@ -22,11 +23,12 @@ module.exports = {
       colors: {
           "background": '#343B3C',
           "accent1": '#6ADAEC',
+          "accent2": "#95B0B5",
           "links": '#FFD7B9',
           "linkshover": '#FF8667',
-          "buttonhover": "#D3FBD8",
-          "active": '#DAECE6',
-          "socials": 'rgba(245,227,214,60)'
+          "buttonhover": "#D4FADD",
+          "active": '#699F78',
+          "socials": '#FFD7B9'
       },
     },
   },
