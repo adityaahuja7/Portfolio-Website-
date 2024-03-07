@@ -79,7 +79,7 @@ export default function Current() {
   
   
   return (
-    <div ref={container} className="hover-card flex flex-col space-y-5 w-max select-none">
+    <div ref={container} className="hover-card flex flex-col items-center md:items-start space-y-5 w-max select-none">
       <Link href="/projects" className = "w-max">
         <div
           className="button-main bg-accent2 opacity-80 rounded-3xl border border-black shadow-lg w-36 h-20 flex flex-col items-center justify-center p-4 "
@@ -101,10 +101,10 @@ export default function Current() {
         </div>
         </Link>
         <span className="bottom-text body-big font-quicksand text-white">
-          <div className="hidden-text text-links hidden opacity-0">
+          <div className="hidden-text text-links md:hidden md:opacity-0">
             Go to my Project Page!
           </div>
-          <div className="displayed-text">Find out what I am working on!</div>
+          <div className="displayed-text hidden md:inline">Find out what I am working on!</div>
         </span>
       </div>
   );

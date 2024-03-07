@@ -30,7 +30,7 @@ const Clock = () => {
     return () => clearInterval(interval);
   });
   return (
-    <div className="clock social-icons body-medium font-quicksand text-socials">
+    <div className="clock hidden md:block social-icons body-medium font-quicksand text-socials">
       {time}
     </div>
   );
@@ -121,10 +121,10 @@ export default function Home() {
     <Wrapper>
       <div
         ref={container}
-        className="main-container w-[100%] flex flex-row justify-center mt-12 select-none"
+        className="main-container w-screen md:h-full flex flex-col items-center md:items-start justify-start md:flex-row md:justify-center select-none"
       >
-        <div className="left-container my-14 flex flex-col space-between items-baseline">
-          <section>
+        <div className="left-container mt-20 md:mt-16 flex flex-col items-center md:items-baseline leading-loose px-8">
+          <section className="text-left">
             <span className="font-quicksand body-large font-extralight text-white">
               {" "}
               Hello,{" "}
@@ -155,13 +155,14 @@ export default function Home() {
               </span>
             </div>
           </section>
-          <section className="card-grid lg:mt-16 mx-5">
+          <section className="card-grid mt-20 md:mt-16 mx-5">
             <HoverCard />
           </section>
         </div>
-        <div className="image-container mt-5">
+        <div className="image-container hidden md:block md:mt-11">
           {" "}
           <Image
+            className = " hidden md:mt-5 md:block"
             src="/home_image.png"
             width={600}
             height={600}
@@ -169,12 +170,12 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="socials fixed left-0 bottom-0 mb-4 ml-4 flex md:flex-col space-y-2">
+        <div className="socials fixed  bottom-0 md:left-0 mb-4  md:ml-4 flex justify-center md:flex-col space-y-2">
           {Clock()}
           {socialsList.map((social, index) => {
             return (
               <Link key={index} href={social.link}>
-                <div className="socials">
+                <div >
                   <Image
                     src={social.path}
                     width={40}
@@ -190,12 +191,12 @@ export default function Home() {
             );
           })}
           {renderTextNodes && (
-            <div className="fixed font-quicksand whisper-text-1 body-big text-white bottom-[20px] left-[70px]">
+            <div className="md:fixed hidden md:inline font-quicksand whisper-text-1 body-big text-white bottom-[20px] left-[70px]">
               Hi There 😀
             </div>
           )}
           {renderTextNodes && (
-            <div className="fixed font-quicksand whisper-text-2 body-big text-white bottom-[20px] left-[70px]">
+            <div className="md:fixed hidden md:inline font-quicksand whisper-text-2 body-big text-white bottom-[20px] left-[70px]">
               Feel free to reach out! 🤙
             </div>
           )}

@@ -12,11 +12,11 @@ const Links = {
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <nav className="navbar-main flex flex-row justify-between items-end w-full mt-3 py-3 px-9 select-none">
-      <div className="logo  text-accent1 font-openSans rounded-md px-2 font-bold ">
+    <nav className="navbar-main flex flex-row justify-between items-end w-screen mt-3 py-3 select-none px-8 md:px-12">
+      <div className="logo  text-accent1 font-openSans rounded-md font-bold ">
         <Link href="/">ADITYA AHUJA</Link>
       </div>
-      <div className="nav-buttons flex flex-row justify-between align-bottom items-end space-x-[8rem] pr-10">
+      <div className="nav-buttons flex flex-row justify-evenly align-bottom items-end space-x-[1rem] md:space-x-[6rem]">
         {Object.keys(Links).map((key,index) => {
           return (
             <Link key = {index} href={Links[key as keyof typeof Links]}>

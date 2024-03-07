@@ -24,6 +24,7 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
         initial="initial"
         animate="animate"
         variants={page_variant}
+        className = "wrapper"
       >
         {children}
       </motion.div>
