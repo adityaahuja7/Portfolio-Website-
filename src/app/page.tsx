@@ -6,58 +6,45 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
-const Clock = () => {
-  const [time, setTime] = useState(
-    new Date()
-      .toLocaleTimeString('en-IN', {
-        hour: "2-digit",
-        minute: "2-digit",
-      })
-      .replace(/(:\d{2}|)$/, "")
-  );
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(
-        new Date()
-          .toLocaleTimeString('en-IN', {
-            hour: "2-digit",
-            minute: "2-digit",
-          })
-          .replace(/(:\d{2}|)$/, "")
-      );
-    }, 1000);
-    return () => clearInterval(interval);
-  });
-  return (
-    <div className="clock hidden md:block social-icons body-medium font-quicksand text-socials">
-      {time}
-    </div>
-  );
-};
+import { socialsList } from "@/app/socialsList";
+import Clock from "@/components/Clock";
 
 export default function Home() {
   const container = useRef(null);
   const tlref = useRef<gsap.core.Timeline>();
   const [renderTextNodes, setRenderTextNodes] = useState(true);
+  let mm = gsap.matchMedia();
 
   const { contextSafe } = useGSAP(
     () => {
+
+
+      mm.add("(min-width: 768px)", () => {
+        gsap.from(".social-icons", {
+          xPercent: -200,
+          opacity: 1,
+          stagger: 0.1,
+        });
+      });
+
+      mm.add("(max-width: 768px)", () => {
+        gsap.from(".social-icons", {
+          yPercent: 200,
+          opacity: 1,
+          stagger: 0.1,
+        });
+      });
+
       tlref.current = gsap
         .timeline({
           onComplete: () => {
             setRenderTextNodes(false);
           },
         })
-        .from(".social-icons", {
-          xPercent: -200,
-          opacity: 1,
-          stagger: 0.1,
-        })
         .from(".whisper-text-1", {
           y: "200px",
           opacity: 1,
-          delay: 0.5,
+          delay: 2,
           ease: "power1.inOut",
         })
         .to(".whisper-text-1", {
@@ -82,48 +69,29 @@ export default function Home() {
     { scope: container }
   );
 
-  const socialHoverAnimationEnter = contextSafe((event:React.MouseEvent<HTMLDivElement>) => {
-    gsap.to(event.target, {
-      x: 10,
-    });
-  });
+  const socialHoverAnimationEnter = contextSafe(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      gsap.to(event.target, {
+        x: 10,
+      });
+    }
+  );
 
-  const socialHoverAnimationExit = contextSafe((event:React.MouseEvent<HTMLDivElement>) => {
-    gsap.to(event.target, {
-      x: 0,
-    });
-  });
-
-  const socialsList = [
-    {
-      name: "LinkedIn",
-      link: "https://www.linkedin.com/in/aditya-ahuja-iiitd/",
-      path: "/linkedin.svg",
-    },
-    {
-      name: "Github",
-      link: "https://github.com/adityaahuja7",
-      path: "/github.svg",
-    },
-    {
-      name: "Gmail",
-      link: "mailto:ahujaaditya00@gmail.com",
-      path: "/gmail.svg",
-    },
-    {
-      name: "WhatsApp",
-      link: "https://wa.me/8287608797",
-      path: "/whatsapp.svg",
-    },
-  ];
+  const socialHoverAnimationExit = contextSafe(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      gsap.to(event.target, {
+        x: 0,
+      });
+    }
+  );
 
   return (
     <Wrapper>
       <div
         ref={container}
-        className="main-container w-screen md:h-full flex flex-col items-center md:items-start justify-start md:flex-row md:justify-center select-none"
+        className="main-container w-screen  flex flex-col items-center md:items-start justify-start md:flex-row md:justify-center select-none"
       >
-        <div className="left-container mt-20 md:mt-16 flex flex-col items-center md:items-baseline leading-loose px-8">
+        <div className="left-container mt-20 md:mt-32 flex flex-col items-center md:items-baseline leading-loose pr-8">
           <section className="text-left">
             <span className="font-quicksand body-large font-extralight text-white">
               {" "}
@@ -140,7 +108,7 @@ export default function Home() {
               </span>
             </div>
             <div className="lg:mt-8">
-              <span className="font-quicksand font-extralight body-big text-white">
+              <span className="font-quicksand font-extralight body-large text-white">
                 {" "}
                 a Computer Science & Applied Mathematics Undergraduate <br /> at{" "}
                 <span className="font-quicksand font-bold body-link ">
@@ -162,10 +130,10 @@ export default function Home() {
         <div className="image-container hidden md:block md:mt-11">
           {" "}
           <Image
-            className = " hidden md:mt-5 md:block"
+            className=" hidden md:mt-5 md:block"
             src="/home_image.png"
-            width={600}
-            height={600}
+            width={680}
+            height={680}
             alt="Picture of the author"
             priority
           />
@@ -175,7 +143,7 @@ export default function Home() {
           {socialsList.map((social, index) => {
             return (
               <Link key={index} href={social.link}>
-                <div >
+                <div>
                   <Image
                     src={social.path}
                     width={40}

@@ -29,7 +29,8 @@ module.exports = {
           "linkshover": '#FF8667',
           "buttonhover": "#D4FADD",
           "active": '#699F78',
-          "socials": '#FFD7B9'
+          "socials": '#FFD7B9',
+          "slide": "rgba(22,28,29,75%)"
       },
     },
   },

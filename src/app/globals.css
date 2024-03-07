@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Quicksand:wght@600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Kode+Mono:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Kode+Mono:wght@400..700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,11 +37,11 @@
     @apply text-xl md:text-xl lg:text-2xl;
   }
 
-  .body-nav{
+  .body-nav {
     @apply text-xs md:text-lg lg:text-xl;
   }
 
-  .logo{
+  .logo {
     @apply text-xl md:text-2xl lg:text-4xl;
   }
 
@@ -61,7 +61,15 @@
     @apply text-links hover:text-linkshover;
   }
 
-  .arrow-right{
+  .arrow-right {
     perspective: 1000px;
   }
+}
+
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+}
+.swiper-pagination-bullet-active {
+  background: antiquewhite !important;
 }

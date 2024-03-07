@@ -32,12 +32,12 @@ export default function Current() {
         .to(".displayed-text", {
           x: "2rem",
           opacity:0,
-          duration: 0.2,
+          duration: 0.3,
         })
         .to(".hidden-text", {
           display:"inline",
           opacity:1,
-          duration:0.2
+          duration:0.3
         })
     },
     { scope: container }
@@ -92,10 +92,10 @@ export default function Current() {
           onMouseDown={() => {handleClick()}}
         >
           <Image
-            src="/RightArrow.svg"
+            src="/Laptop.svg"
             alt="right arrow"
-            width={25}
-            height={25}
+            width={35}
+            height={35}
             className="arrow-right"
           />
         </div>
