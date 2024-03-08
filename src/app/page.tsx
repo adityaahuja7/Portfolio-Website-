@@ -89,7 +89,7 @@ export default function Home() {
     <Wrapper>
       <div
         ref={container}
-        className="main-container w-screen  flex flex-col items-center md:items-start justify-start md:flex-row md:justify-center select-none"
+        className="main-container w-screen overflow-hidden  flex flex-col items-center md:items-start justify-start md:flex-row md:justify-center select-none"
       >
         <div className="left-container mt-20 md:mt-32 flex flex-col items-center md:items-baseline leading-loose pr-8">
           <section className="text-left">

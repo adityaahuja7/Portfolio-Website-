@@ -74,7 +74,7 @@ export default function Projects() {
     <Wrapper>
       <div
         ref={container}
-        className="main-container w-screen h-full flex flex-col items-center justify-center md:flex-row select-none"
+        className="main-container w-screen h-full flex flex-col items-center justify-center md:flex-row select-none overflow-hidden"
       >
         <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel-container flex flex-col items-center  w-[70%] h-[80%] justify-center mt-4">
           <ProjectCard reachEndCallback={onReachEnd} />
