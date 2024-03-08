@@ -132,8 +132,8 @@ export default function Home() {
           <Image
             className=" hidden md:mt-5 md:block"
             src="/home_image.png"
-            width={620}
-            height={620}
+            width={580}
+            height={580}
             alt="Picture of the author"
             priority
           />
