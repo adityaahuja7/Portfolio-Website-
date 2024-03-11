@@ -8,6 +8,7 @@ import { socialsList } from "@/app/socialsList";
 import Link from "next/link";
 import Image from "next/image";
 import Clock from "@/components/Clock";
+import Particles from "@/components/particles";
 
 export default function Projects() {
   const container = useRef(null);
@@ -40,7 +41,7 @@ export default function Projects() {
         .timeline({ paused: true })
         .from(".end-text", {
           y: 100,
-          duration: 0.5,
+          duration: 0.7,
         })
         .to(".end-text", {
           y: 100,
@@ -52,7 +53,13 @@ export default function Projects() {
   );
 
   const onReachEnd = contextSafe(() => {
-    tlref.current!.play();
+    if (tlref.current?.isActive() == false) {
+      tlref.current?.play().then(() => {
+        tlref.current?.pause(0, true);
+      });
+
+    }
+    
   });
 
   const socialHoverAnimationEnter = contextSafe(
@@ -79,8 +86,9 @@ export default function Projects() {
         <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel-container flex flex-col items-center  w-[70%] h-[80%] justify-center mt-4">
           <ProjectCard reachEndCallback={onReachEnd} />
         </div>
-        <a className="end-text fixed bottom-0 right-0 m-4 body-big text-links" href="https://github.com/adityaahuja7">Check out my other projects on GitHub</a>
+        <a className="end-text fixed bottom-0 right-0 m-4 body-big text-links hover:text-linkshover" href="https://github.com/adityaahuja7">Check out my other projects on GitHub</a>
         <div className="socials fixed bottom-0 md:left-0 mb-4 md:ml-4 flex justify-center md:flex-col space-y-2">
+        <div className="swiper-custom-pagination fixed left-0 top-1/2 -translate-x-1.2 -translate-y-1/2"/>
           {Clock()}
           {socialsList.map((social, index) => {
             return (

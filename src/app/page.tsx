@@ -91,7 +91,7 @@ export default function Home() {
         ref={container}
         className="main-container w-screen overflow-hidden  flex flex-col items-center md:items-start justify-start md:flex-row md:justify-center select-none"
       >
-        <div className="left-container mt-20 md:mt-32 flex flex-col items-center md:items-baseline leading-loose pr-8">
+        <div className="left-container mt-20 md:mt-32 flex flex-col items-center md:items-baseline leading-loose p-8 md:pr-8">
           <section className="text-left">
             <span className="font-quicksand body-large font-extralight text-white">
               {" "}
@@ -107,7 +107,7 @@ export default function Home() {
                 Aditya Ahuja,{" "}
               </span>
             </div>
-            <div className="lg:mt-8">
+            <div  className="lg:mt-8">
               <span className="font-quicksand font-extralight body-large text-white">
                 {" "}
                 a Computer Science & Applied Mathematics Undergraduate <br /> at{" "}
@@ -118,7 +118,7 @@ export default function Home() {
                 </span>
                 <br />
                 <br />
-                Welcome to my personal website 👋 <br />
+                Welcome to my personal website!<br />
                 Have a look around and feel free to reach out! <br />{" "}
               </span>
             </div>
@@ -165,7 +165,7 @@ export default function Home() {
           )}
           {renderTextNodes && (
             <div className="md:fixed hidden md:inline font-quicksand whisper-text-2 body-big text-white bottom-[20px] left-[70px]">
-              Feel free to reach out! 🤙
+              Feel free to reach out!
             </div>
           )}
         </div>

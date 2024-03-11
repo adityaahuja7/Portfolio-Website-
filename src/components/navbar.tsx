@@ -12,8 +12,9 @@ const Links = {
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <nav className="navbar-main flex flex-row justify-between items-end w-screen mt-3 py-3 select-none px-8 md:px-12">
-      <div className="logo  text-accent1 font-quicksand font-bold ">
+    <nav className="navbar-main flex flex-row justify-between items-end w-screen mt-3 py-3 select-none px-8 md:px-12 z-10">
+      <div className="logo  text-accent3
+      d font-quicksand font-bold ">
         <Link href="/">ADITYA AHUJA</Link>
       </div>
       <div className="nav-buttons flex flex-row justify-evenly align-bottom items-end space-x-[1rem] md:space-x-[8rem]">

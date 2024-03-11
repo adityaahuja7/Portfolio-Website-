@@ -27,15 +27,15 @@
   }
 
   .body-nav {
-    @apply text-xs md:text-lg lg:text-xl;
+    @apply text-xs md:text-lg lg:text-2xl;
   }
 
   .logo {
-    @apply text-xl md:text-2xl lg:text-4xl;
+    @apply text-xl md:text-3xl lg:text-5xl;
   }
 
   .body-medium {
-    @apply text-xs md:text-sm lg:text-base;
+    @apply text-sm md:text-base lg:text-xl;
   }
 
   .body-small {
@@ -61,4 +61,15 @@
 }
 .swiper-pagination-bullet-active {
   background: antiquewhite !important;
+}
+
+#tsparticles{
+  position:fixed;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  height: 100vh;
+  width:100vw;
+  aspect-ratio: none !important;
+  transition: all 0.3s ease-in-out;
 }

@@ -92,7 +92,7 @@ export default function Current() {
           onMouseDown={() => {handleClick()}}
         >
           <Image
-            src="/Laptop.svg"
+            src="socials/Laptop.svg"
             alt="right arrow"
             width={35}
             height={35}

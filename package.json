@@ -11,6 +11,9 @@
   "dependencies": {
     "@gsap/react": "^2.1.0",
     "@studio-freight/lenis": "^1.0.34",
+    "@tsparticles/engine": "^3.3.0",
+    "@tsparticles/plugin-polygon-mask": "^3.3.0",
+    "@tsparticles/react": "^3.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.8",
@@ -22,7 +25,8 @@
     "sharp": "^0.33.2",
     "swiper": "^11.0.7",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tsparticles": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
