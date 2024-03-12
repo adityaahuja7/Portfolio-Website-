@@ -23,7 +23,7 @@ const Clock = () => {
       return () => clearInterval(interval);
     });
     return (
-      <div className="clock hidden md:block social-icons body-medium font-quicksand text-socials">
+      <div className="clock social-icons body-small font-inter text-accent">
         {time}
       </div>
     );

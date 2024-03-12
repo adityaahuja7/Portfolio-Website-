@@ -15,23 +15,22 @@ module.exports = {
       'quicksand': ['Quicksand', 'sans-serif'],
       'lato': ['Lato', 'sans-serif'],
       'openSans': ['Open Sans', 'sans-serif'],
-      'karla': ["Karla", 'sans-serif']
+      'karla': ["Karla", 'sans-serif'],
+      'inter': ['Inter', 'sans-serif'],
 
     },
 
     extend: {
       colors: {
-          "background": '#343B3C',
-          "accent1": '#6ADAEC',
-          "accent2": "#95B0B5",
-          "accent3": "#ff4848",
-          "links": '#FFD7B9',
-          "linkshover": '#FF8667',
-          "buttonhover": "#D4FADD",
-          "active": '#699F78',
-          "socials": '#FFD7B9',
-          "slide": "rgba(22,28,29,75%)"
+          "background": '#0E0615',
+          "text": "#E5D8F6",
+          "primary": "#B187E4",
+          "secondary":"#B5CDCE",
+          "accent": "#d135ab",
       },
+      dropShadow:{
+        "button": "8px 8px 23px rgba(181, 205, 206, 0.5)",
+      }
     },
   },
   plugins: [],

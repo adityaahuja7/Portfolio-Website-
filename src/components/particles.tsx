@@ -40,13 +40,13 @@ const App = () => {
         },
         modes: {
           bubble:{
-            size:4,
+            size:2,
             radius: 20,
           },
           connect: {
-            distance:80,
+            distance:70,
             links: {
-              opacity: 0.05,
+              opacity: 0.2,
             },
             radius: 80,
           },
@@ -54,7 +54,7 @@ const App = () => {
       },
       particles: {
         color: {
-          value: "6ADAEC",
+          value: "#B5CDCE",
         },
         move: {
           enable: true,
@@ -78,7 +78,7 @@ const App = () => {
           },
           value:{
             min:0.05,
-            max:0.1,
+            max:0.2,
           }
         },
         shape: {
@@ -89,7 +89,7 @@ const App = () => {
         },
       },
       background: {
-        color: "#343B3C",
+        color: "#0E0615",
       },
       fullScreen: {
         enable: false,

@@ -13,7 +13,7 @@ import Image from "next/image";
 interface contentType {
   name: string;
   description: string;
-  supervisors: string[];
+  association: string;
   timeperiod: string;
   teamsize: number;
   stack: string[];
@@ -25,7 +25,7 @@ function ProjectSlide(props: { content: contentType }) {
   let {
     name,
     description,
-    supervisors,
+    association,
     timeperiod,
     teamsize,
     stack,
@@ -33,22 +33,21 @@ function ProjectSlide(props: { content: contentType }) {
     relevant_links,
   } = props.content;
   return (
-    <div className=" project-slide w-full h-full font-quicksand rounded-3xl bg-slide hover:cursor-grab select-none overflow-none ">
+    <div className=" project-slide w-full h-full font-inter rounded-3xl bg-secondary bg-opacity-10 hover:cursor-grab select-none overflow-none">
       <div className="card-tl-text fixed top-0 left-0 m-3 text-accent2 flex flex-col py-8">
-        <div className="project-card-header body-big px-8 leading-snug">
-          <span className="text-accent">Duration:</span>
-          <span> {timeperiod}</span>
+        <div className="project-card-header body-large px-8 leading-loose">
+          <span className="text-secondary">Duration:</span>
+          <span className="text-text"> {timeperiod}</span>
           <br />
-          <span className="text-accent2">Team Size:</span>
-          <span> {teamsize}</span>
+          <span className="text-secondary">Team Size:</span>
+          <span  className="text-text"> {teamsize}</span>
           <br />
-          <span className="text-accent2">Supervisors:</span>
-          <span> {supervisors.join(", ")}</span>
+
         </div>
-        <div className="body-Xlarge text-[#95B0B5] font-quicksand px-7  leading-snug">
+        <div className="body-XXlarge text-primary font-inter px-7  leading-snug">
           {name}
         </div>
-        <div className="body-medium text-[#95B0B5] font-quicksand px-8  leading-loose">
+        <div className="body-medium text-text font-inter px-8  leading-loose">
           {description}
         </div>
       </div>
@@ -90,7 +89,7 @@ const dummyData: contentType[] = [
     name: "Project-1",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, ipsum aliquam sed fuga ratione ea optio quia rem repudiandae. Enim delectus aliquam corrupti aperiam rem voluptate quo nemo eveniet nobis.",
-    supervisors: ["Supervisor-1", "Supervisor-2"],
+    association: "Midas Labs, IIIT-Delhi",
     timeperiod: "Jan-2020 to Dec-2020",
     teamsize: 5,
     stack: ["React", "Next.js", "TailwindCSS"],
@@ -100,7 +99,7 @@ const dummyData: contentType[] = [
   {
     name: "Project-2",
     description: "Description-2",
-    supervisors: ["Supervisor-3", "Supervisor-4"],
+    association: "Individual",
     timeperiod: "Jan-2021 to Dec-2021",
     teamsize: 10,
     stack: ["React", "Next.js", "TailwindCSS"],

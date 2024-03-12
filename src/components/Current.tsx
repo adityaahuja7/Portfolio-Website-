@@ -8,7 +8,6 @@ import Link from "next/link";
 
 export default function Current() {
   const container = useRef(null);
-  const tlref = useRef<gsap.core.Timeline>();
   const { contextSafe } = useGSAP(
     () => {
       gsap
@@ -26,43 +25,28 @@ export default function Current() {
           opacity: 0,
           yPercent: -100,
         });
+      }
 
-      tlref.current = gsap
-        .timeline({ paused: true })
-        .to(".displayed-text", {
-          x: "2rem",
-          opacity:0,
-          duration: 0.3,
-        })
-        .to(".hidden-text", {
-          display:"inline",
-          opacity:1,
-          duration:0.3
-        })
-    },
-    { scope: container }
+
   );
 
   const toggleEnter = contextSafe(() => {
-    tlref.current!.play(0);
+
     gsap.to(".button-main",{
       scale: 1.1,
-      xPercent:5,
-      yPercent:-5,
-      boxShadow: "-5px 5px 0px 0px rgba(0,0,0,0.6)",
+      yPercent:-1,
+      boxShadow: "0px 0px 25px 25px rgba(137, 31, 129,0.2)",
       cursor: "pointer",
-      duration:0.1
+      duration:0.3
     })
   });
 
   const toggleLeave = contextSafe(() => {
-    tlref.current!.reversed(!tlref.current!.reversed());
     gsap.to(".button-main",{
       scale: 1,
-      xPercent:-5,
-      yPercent:5,
+      yPercent:1,
       boxShadow:"none",
-      duration:0.1,
+      duration:0.3,
     })
   });
 
@@ -70,19 +54,18 @@ export default function Current() {
   const handleClick = contextSafe(() => {
     gsap.to(".button-main",{
       scale: 1,
-      xPercent:-5,
-      yPercent:5,
+      yPercent:1,
       boxShadow:"none",
-      duration:0.1,
+      duration:0.3,
     })
   });
   
   
   return (
-    <div ref={container} className="hover-card flex flex-col items-center md:items-start space-y-5 w-max select-none">
+    <div ref={container} className="hover-card flex flex-col items-center space-y-5 select-none">
       <Link href="/projects" className = "w-max">
         <div
-          className="button-main bg-accent2 opacity-80 rounded-3xl border border-black shadow-lg w-36 h-20 flex flex-col items-center justify-center p-4 "
+          className="button-main bg-primary opacity-80 rounded-3xl border border-black shadow-lg w-36 h-20 flex flex-col items-center justify-center"
           onMouseEnter={() => {
             toggleEnter();
           }}
@@ -100,12 +83,9 @@ export default function Current() {
           />
         </div>
         </Link>
-        <span className="bottom-text body-big font-quicksand text-white">
-          <div className="hidden-text text-links md:hidden md:opacity-0">
-            Go to my Project Page!
-          </div>
-          <div className="displayed-text hidden md:inline">Find out what I am working on!</div>
-        </span>
+        <div className="bottom-text font-regular body-big font-inter text-text">
+          <div className="displayed-text hidden md:inline text-center ">Check out my most recent project ➡️</div>
+        </div>
       </div>
   );
 }

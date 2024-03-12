@@ -17,8 +17,6 @@ export default function Home() {
 
   const { contextSafe } = useGSAP(
     () => {
-
-
       mm.add("(min-width: 768px)", () => {
         gsap.from(".social-icons", {
           xPercent: -200,
@@ -89,36 +87,34 @@ export default function Home() {
     <Wrapper>
       <div
         ref={container}
-        className="main-container w-screen overflow-hidden  flex flex-col items-center md:items-start justify-start md:flex-row md:justify-center select-none"
-      >
-        <div className="left-container mt-20 md:mt-32 flex flex-col items-center md:items-baseline leading-loose p-8 md:pr-8">
-          <section className="text-left">
-            <span className="font-quicksand body-large font-extralight text-white">
-              {" "}
-              Hello,{" "}
-            </span>
-            <div>
-              <span className="font-quicksand font-regular body-Xlarge text-white">
+        className="main-container w-screen overflow-hidden flex flex-col items-center justify-center">
+        <div className="font-inter flex flex-col items-center justify-center mt-20 p-4">
+          <section>
+            <div className="body-Xlarge text-center font-light leading-normal text-text">
+              Hello,
+              <br />
+              <span className="font-regular body-Xlarge text-text">
                 {" "}
                 I am{" "}
               </span>
-              <span className="font-quicksand font-regular body-XXlarge text-accent3">
+              <span className="font-semibold body-XXlarge text-primary">
                 {" "}
                 Aditya Ahuja,{" "}
               </span>
             </div>
-            <div  className="lg:mt-8">
-              <span className="font-quicksand font-extralight body-large text-white">
+            <div className="lg:mt-8 text-center">
+              <span className="font-light body-large text-text">
                 {" "}
                 a Computer Science & Applied Mathematics Undergraduate <br /> at{" "}
-                <span className="font-quicksand font-bold body-link ">
+                <span className="font-light body-link text-accent hover:opacity-55">
                   <a href="https://iiitd.ac.in">
                     Indraprastha Institute of Information Technology, Delhi.
                   </a>
                 </span>
                 <br />
                 <br />
-                Welcome to my personal website!<br />
+                Welcome to my personal website!
+                <br />
                 Have a look around and feel free to reach out! <br />{" "}
               </span>
             </div>
@@ -127,19 +123,9 @@ export default function Home() {
             <HoverCard />
           </section>
         </div>
-        <div className="image-container hidden md:block md:mt-11">
-          {" "}
-          <Image
-            className=" hidden md:mt-5 md:block"
-            src="/home_image.png"
-            width={580}
-            height={580}
-            alt="Picture of the author"
-            priority
-          />
-        </div>
-        <div className="socials fixed  bottom-0 md:left-0 mb-4  md:ml-4 flex justify-center md:flex-col space-y-2">
-          {Clock()}
+        <div className="socials fixed bottom-0 md:left-0 mb-4 md:ml-4 flex flex-col items-center md:items-baseline">
+          <div>{Clock()}</div>
+          <div className = "flex justify-center items-baseline md:flex-col space-y-2 space-x-5 md:space-x-0">
           {socialsList.map((social, index) => {
             return (
               <Link key={index} href={social.link}>
@@ -158,17 +144,19 @@ export default function Home() {
               </Link>
             );
           })}
+          </div>
+          </div>
           {renderTextNodes && (
-            <div className="md:fixed hidden md:inline font-quicksand whisper-text-1 body-big text-white bottom-[20px] left-[70px]">
-              Hi There 😀
+            <div className="md:fixed hidden md:inline font-quicksand whisper-text-1 body-big text-text bottom-[20px] left-[70px]">
+              Hi There 👋
             </div>
           )}
           {renderTextNodes && (
-            <div className="md:fixed hidden md:inline font-quicksand whisper-text-2 body-big text-white bottom-[20px] left-[70px]">
+            <div className="md:fixed hidden md:inline font-quicksand whisper-text-2 body-big text-text bottom-[20px] left-[70px]">
               Feel free to reach out!
             </div>
           )}
-        </div>
+          <div className = "disclaimer absolute body-small right-0 bottom-[96vh] md:bottom-0 p-3 text-white">2024 ©️ Aditya Ahuja, Ph: +91-8287608797</div>
       </div>
     </Wrapper>
   );
