@@ -35,20 +35,16 @@ const App = () => {
         events: {
           onHover: {
             enable: true,
-            mode: ["connect","bubble"],
+            mode: ["connect"],
           },
         },
         modes: {
-          bubble:{
-            size:2,
-            radius: 20,
-          },
           connect: {
             distance:70,
             links: {
               opacity: 0.2,
             },
-            radius: 80,
+            radius: 70,
           },
         },
       },
@@ -65,7 +61,7 @@ const App = () => {
           speed: 1,
         },
         number: {
-          value: 750,
+          value: 650,
           density:{
             enable: true,
             area: 100,

@@ -11,17 +11,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isDesktop,setIsDesktop] = useState(false);
-  useLayoutEffect(()=>{
-    if (window?.innerWidth > 650){
-      setIsDesktop(true)
-    }
-  })
-  let path = usePathname();
+
   return (
     <html lang="en" className="bg-background">
       <body key="bodymain">
-        {isDesktop && <Particles />}
         <Navbar />
         {children}
       </body>

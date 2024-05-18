@@ -25,7 +25,7 @@ module.exports = {
           "background": '#0E0615',
           "text": "#E5D8F6",
           "primary": "#B187E4",
-          "secondary":"#B5CDCE",
+          "secondary":"#D5CABD",
           "accent": "#d135ab",
       },
       dropShadow:{

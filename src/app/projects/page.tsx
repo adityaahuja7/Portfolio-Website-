@@ -83,12 +83,12 @@ export default function Projects() {
         ref={container}
         className="main-container w-screen h-full flex flex-col items-center justify-center "
       >
-        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel-container flex flex-col items-center  w-[65%] h-[75%] justify-center mt-4">
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 carousel-container flex flex-col items-center  w-[70%] h-[75%] justify-center mt-4">
           <ProjectCard reachEndCallback={onReachEnd} />
         </div>
         <a className="end-text fixed bottom-0 right-0 m-4 body-big text-accent  hover:opacity-80" href="https://github.com/adityaahuja7">Check out my other projects on GitHub</a>
         <div className="socials fixed bottom-0 md:left-0 mb-4 md:ml-4 flex justify-center md:flex-col space-y-2">
-        <div className="swiper-custom-pagination fixed left-0 top-1/2 -translate-x-1.2 -translate-y-1/2"/>
+        <div className="swiper-custom-pagination fixed left-0 top-1/2 -translate-x-1/2 -translate-y-1/2"/>
           {Clock()}
           {socialsList.map((social, index) => {
             return (
